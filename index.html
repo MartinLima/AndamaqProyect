@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Andamaq</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Exo:wght@800&family=Overpass:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="imagenes/andamaq.png" type="image/png" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              "andamaq-dark": "#0D0D0D",
+              "andamaq-green": "#4A8C08",
+              "andamaq-neon": "#7CF205",
+              "andamaq-text": "#71e001",
+            },
+            fontFamily: {
+              exo: ["Exo", "sans-serif"],
+              overpass: ["Overpass", "sans-serif"],
+            },
+            backgroundImage: {
+              "hero-pattern":
+                "linear-gradient(to bottom, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.6)), url('imagenes/Trabajadores-En-Andamio.png')",
+              "card-gradient":
+                "linear-gradient(to bottom, rgb(60, 150, 0), rgba(14, 60, 0, 0.75))",
+              "body-gradient":
+                "linear-gradient(180deg, #033002 5%, #0D0D0D 45%)",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .text-shadow-strong {
+        text-shadow: 0px 4px 15px rgba(0, 0, 0, 0.8);
+      }
+      .text-shadow-glow {
+        text-shadow: 0px 0px 10px rgba(124, 242, 5, 0.5);
+      }
+
+      /* Animación suave para el modal */
+      #productModal {
+        transition: opacity 0.3s ease;
+      }
+      #productModal.hidden {
+        opacity: 0;
+        pointer-events: none;
+      }
+      #productModal:not(.hidden) {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    </style>
+  </head>
+
+  <body class="bg-body-gradient min-h-screen text-white font-overpass">
+    <header
+      class="sticky top-0 z-40 bg-andamaq-dark/95 border-b border-andamaq-green shadow-lg backdrop-blur-sm"
+    >
+      <div
+        class="flex justify-between items-center px-4 py-2 max-w-7xl mx-auto"
+      >
+        <img
+          class="h-[60px] w-auto"
+          src="imagenes/andamaq.png"
+          alt="Logo de Andamaq"
+        />
+
+        <nav class="hidden md:block">
+          <ul class="flex gap-6 items-center">
+            <li>
+              <a
+                href="#"
+                class="text-gray-200 hover:text-white font-bold transition-colors duration-300 relative group"
+                >ANDAMAQ<span
+                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-andamaq-neon transition-all duration-300 group-hover:w-full"
+                ></span
+              ></a>
+            </li>
+            <li>
+              <a
+                href="#quienes-somos"
+                class="text-gray-200 hover:text-white font-bold transition-colors duration-300 relative group"
+                >¿Quiénes somos?<span
+                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-andamaq-neon transition-all duration-300 group-hover:w-full"
+                ></span
+              ></a>
+            </li>
+            <li>
+              <a
+                href="#catalogo"
+                class="text-gray-200 hover:text-white font-bold transition-colors duration-300 relative group"
+                >Catálogo<span
+                  class="absolute -bottom-1 left-0 w-0 h-0.5 bg-andamaq-neon transition-all duration-300 group-hover:w-full"
+                ></span
+              ></a>
+            </li>
+            <li>
+              <a
+                href="#contacto"
+                class="bg-[#90f030] text-black px-5 py-2 rounded-lg font-bold hover:bg-white transition-colors shadow-md duration-500"
+                >Contacto</a
+              >
+            </li>
+          </ul>
+        </nav>
+        <button class="md:hidden text-andamaq-neon text-3xl">☰</button>
+      </div>
+    </header>
+
+    <section
+      class="relative h-[75vh] flex flex-col justify-center items-center text-center bg-hero-pattern bg-cover bg-center bg-fixed p-4"
+    >
+      <h1 class="flex flex-col gap-2 text-shadow-strong">
+        <span
+          class="font-exo text-6xl md:text-8xl lg:text-[110px] font-black text-andamaq-text tracking-wider leading-none"
+          >Andamaq</span
+        >
+        <span
+          class="font-overpass text-xl md:text-3xl text-white tracking-widest font-normal"
+          >Andamios y maquinaria</span
+        >
+      </h1>
+    </section>
+
+    <main class="py-10 px-4 max-w-7xl mx-auto space-y-16">
+      <div id="quienes-somos" class="max-w-7xl mx-auto my-16 px-4 relative">
+        <div
+          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-andamaq-green/10 blur-[80px] -z-10 rounded-full"
+        ></div>
+
+        <div
+          class="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 md:p-14 text-center shadow-2xl relative overflow-hidden"
+        >
+          <div
+            class="absolute top-4 left-6 text-andamaq-neon/10 font-exo text-9xl font-black leading-none select-none"
+          >
+            “
+          </div>
+
+          <div class="relative z-10 pt-9">
+            <h2
+              class="text-3xl md:text-4xl font-exo font-bold text-white tracking-wide mb-6 inline-flex flex-col items-center"
+            >
+              ¿Quiénes somos?
+              <span class="w-4/5 h-0.5 bg-andamaq-neon rounded-full mt-3"></span>
+            </h2>
+
+            <p
+              class="text-lg md:text-xl text-gray-300 font-overpass leading-relaxed font-light mx-auto max-w-2xl lg:text-pretty tracking-wide"
+            >
+              Somos una empresa dedicada al alquiler de
+              <strong class="text-white font-semibold "
+                >andamios y maquinaria</strong
+              >
+              para la construcción. Te ofrecemos una solución segura, confiable y
+              adaptada a las necesidades de cada obra, priorizando siempre la
+              calidad y los plazos para nuestros clientes.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <section
+        id="catalogo"
+        class="pt-10 pb-10 lg:pb-20 relative"
+      >
+        <div class="container mx-auto px-4">
+          <div class="text-center mb-16">
+            <div class="inline-flex flex-col items-center gap-3">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="w-8 h-8 text-andamaq-neon/80"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                stroke-width="1.5"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"
+                />
+              </svg>
+
+              <h2
+                class="text-3xl md:text-4xl font-exo font-medium text-gray-100 tracking-wide"
+              >
+                Nuestro Catálogo
+              </h2>
+
+              <div
+                class="w-4/5 h-0.5 bg-andamaq-neon/50 rounded-full mt-1"
+              ></div>
+            </div>
+          </div>
+
+          <div class="-mx-4 flex flex-wrap justify-center">
+            <div
+              class="w-full px-4 md:w-1/2 xl:w-1/3 cursor-pointer mb-8"
+              onclick="openModal(this)"
+              data-title="Apisonadora"
+              data-desc="El Motopisón Niwa 160cc es una opción muy elegida para trabajos de compactación por su potencia y fácil manejo. Cuenta con un motor Honda GX160 de 4 tiempos, apto para trabajar sobre distintos tipos de superficies.
+
+Es un equipo resistente y práctico, con ruedas extraíbles que facilitan el traslado dentro de la obra y reducen el esfuerzo durante su uso."
+              data-img="imagenes/Apisonadora.png"
+            >
+              <div
+                class="overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-stone-900/10 shadow-lg duration-500 hover:shadow-[0_0_20px_rgba(124,242,5,0.1)] hover:-translate-y-1 group h-full flex flex-col backdrop-blur-sm"
+              >
+                <div class="h-64 overflow-hidden relative flex-shrink-0">
+                  <div
+                    class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 z-10 flex justify-center items-center opacity-0 group-hover:opacity-100"
+                  >
+                    <span
+                      class="bg-zinc-900 text-andamaq-neon font-bold text-sm tracking-wider px-6 py-2 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-400"
+                    >
+                      VER DETALLES
+                    </span>
+                  </div>
+                  <img
+                    src="imagenes/Apisonadora.png"
+                    alt="Apisonadora"
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
+                  />
+                </div>
+                <div
+                  class="px-6 py-4 flex-grow flex flex-col justify-center items-center min-h-[5rem]"
+                >
+                  <h3
+                    class="text-xl font-semibold text-gray-200 group-hover:text-white transition-colors font-overpass text-center"
+                  >
+                    Apisonadora
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="w-full px-4 md:w-1/2 xl:w-1/3 cursor-pointer mb-8"
+              onclick="openModal(this)"
+              data-title="Andamios Tubulares"
+              data-desc="Estructuras modulares certificadas para trabajos en altura. Máxima seguridad, fácil montaje y adaptabilidad para fachadas, pintura y obras de albañilería."
+              data-img="imagenes/Andamios.jpg"
+            >
+              <div
+                class="overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-stone-900/10 shadow-lg duration-500 hover:shadow-[0_0_20px_rgba(124,242,5,0.1)] hover:-translate-y-1 group h-full flex flex-col backdrop-blur-sm"
+              >
+                <div class="h-64 overflow-hidden relative flex-shrink-0">
+                  <div
+                    class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 z-10 flex justify-center items-center opacity-0 group-hover:opacity-100"
+                  >
+                    <span
+                      class="bg-zinc-900 text-andamaq-neon font-bold text-sm tracking-wider px-6 py-2 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-400"
+                    >
+                      VER DETALLES
+                    </span>
+                  </div>
+                  <img
+                    src="imagenes/Andamios.jpg"
+                    alt="Andamios"
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
+                  />
+                </div>
+
+                <div
+                  class="px-6 py-4 flex-grow flex flex-col justify-center items-center min-h-[5rem]"
+                >
+                  <h3
+                    class="text-xl font-semibold text-gray-200 group-hover:text-white transition-colors font-overpass text-center"
+                  >
+                    Andamios Tubulares
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="w-full px-4 md:w-1/2 xl:w-1/3 cursor-pointer mb-8"
+              onclick="openModal(this)"
+              data-title="Hoyadora"
+              data-desc="La hoyadora a explosión de 63 cm³ es una solución eficiente para trabajos de perforación en suelo. Cuenta con asas para dos operarios, lo que brinda mayor control y estabilidad durante su uso.
+
+Se encuentra disponible con mechas de 20 y 30 cm de diámetro y un brazo extensor que permite alcanzar hasta 1,5 m de profundidad, logrando perforaciones limpias y precisas en poco tiempo."
+              data-img="imagenes/Hoyadora.png"
+            >
+              <div
+                class="overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-stone-900/10 shadow-lg duration-500 hover:shadow-[0_0_20px_rgba(124,242,5,0.1)] hover:-translate-y-1 group h-full flex flex-col backdrop-blur-sm"
+              >
+                <div class="h-64 overflow-hidden relative flex-shrink-0">
+                  <div
+                    class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 z-10 flex justify-center items-center opacity-0 group-hover:opacity-100"
+                  >
+                    <span
+                      class="bg-zinc-900 text-andamaq-neon font-bold text-sm tracking-wider px-6 py-2 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-400"
+                    >
+                      VER DETALLES
+                    </span>
+                  </div>
+                  <img
+                    src="imagenes/Hoyadora.png"
+                    alt="Hoyadora"
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
+                  />
+                </div>
+
+                <div
+                  class="px-6 py-4 flex-grow flex flex-col justify-center items-center min-h-[5rem]"
+                >
+                  <h3
+                    class="text-xl font-semibold text-gray-200 group-hover:text-white transition-colors font-overpass text-center"
+                  >
+                    Hoyadora
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="w-full px-4 md:w-1/2 xl:w-1/3 cursor-pointer mb-8"
+              onclick="openModal(this)"
+              data-title="hidrolavadora"
+              data-desc="El equipo completo de hidrolavadora a explosión Stihl de 170 bar, está montado sobre un carro con tanque de 1000 litros, pensado para trabajos de limpieza exigentes.
+
+Al tratarse de un sistema totalmente autónomo, que no requiere conexión a red eléctrica ni suministro de agua, es una solución ideal para operar en zonas remotas y para tareas de limpieza de frentes, pisos, tanques y diversas superficies."
+              data-img="imagenes/Hidro.png"
+            >
+              <div
+                class="overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-stone-900/10 shadow-lg duration-500 hover:shadow-[0_0_20px_rgba(124,242,5,0.1)] hover:-translate-y-1 group h-full flex flex-col backdrop-blur-sm"
+              >
+                <div class="h-64 overflow-hidden relative flex-shrink-0">
+                  <div
+                    class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 z-10 flex justify-center items-center opacity-0 group-hover:opacity-100"
+                  >
+                    <span
+                      class="bg-zinc-900 text-andamaq-neon font-bold text-sm tracking-wider px-6 py-2 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-400"
+                    >
+                      VER DETALLES
+                    </span>
+                  </div>
+                  <img
+                    src="imagenes/Hidro.png"
+                    alt="hidrolavadora"
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
+                  />
+                </div>
+
+                <div
+                  class="px-6 py-4 flex-grow flex flex-col justify-center items-center min-h-[5rem]"
+                >
+                  <h3
+                    class="text-xl font-semibold text-gray-200 group-hover:text-white transition-colors font-overpass text-center"
+                  >
+                    Hidrolavadora
+                  </h3>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="w-full px-4 md:w-1/2 xl:w-1/3 cursor-pointer mb-8"
+              onclick="openModal(this)"
+              data-title="Amoladora Angular"
+              data-desc="La amoladora angular Milwaukee de 9” está pensada para quienes necesitan una herramienta firme y rendidora en trabajos exigentes. Es ideal para cortes intensivos en hierros, perfiles metálicos y mampostería, acompañando sin problemas las tareas pesadas de obra y mantenimiento."
+              data-img="imagenes/Amoladora.png"
+            >
+              <div
+                class="overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-border-stone-900/10 shadow-lg duration-500 hover:shadow-[0_0_20px_rgba(124,242,5,0.1)] hover:-translate-y-1 group h-full flex flex-col backdrop-blur-sm"
+              >
+                <div class="h-64 overflow-hidden relative flex-shrink-0">
+                  <div
+                    class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 z-10 flex justify-center items-center opacity-0 group-hover:opacity-100"
+                  >
+                    <span
+                      class="bg-zinc-900 text-andamaq-neon font-bold text-sm tracking-wider px-6 py-2 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-400"
+                    >
+                      VER DETALLES
+                    </span>
+                  </div>
+                  <img
+                    src="imagenes/Amoladora.png"
+                    alt="Amoladora"
+                    class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100"
+                  />
+                </div>
+
+                <div
+                  class="px-6 py-4 flex-grow flex flex-col justify-center items-center min-h-[5rem]"
+                >
+                  <h3
+                    class="text-xl font-semibold text-gray-200 group-hover:text-white transition-colors font-overpass text-center"
+                  >
+                    Amoladora Angular
+                  </h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contacto" class="bg-[#0D0D0D] border-t border-andamaq-green/50">
+  <div class="mx-auto max-w-7xl px-4 pt-16 pb-16 sm:px-6 lg:px-8 lg:pt-24 lg:pb-16">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      
+      <div class="text-center lg:text-center sm:text-pretty lg:text-pretty">
+        <h2 class="text-3xl font-extrabold text-white sm:text-5xl font-exo">
+          ¿Tenés un proyecto en mente?
+        </h2>
+
+        <p class="mt-4 max-w-xl mx-auto lg:mx-0 text-gray-400 font-overpass text-lg">
+          Estamos listos para asesorarte. Encontranos en
+          <span class="text-white font-bold">Ramírez 154, Colón, Entre Ríos</span>
+          o contactanos directamente.
+        </p>
+
+        <div class="mt-6 flex flex-col md:flex-row justify-center lg:justify-start items-center gap-4 text-andamaq-neon font-bold text-lg">
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            +54 9 3447 592955
+          </span>
+          <span class="hidden md:block text-gray-600">|</span>
+          <span class="flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            andamaq.colon@gmail.com
+          </span>
+        </div>
+
+        <div class="mt-8 flex justify-center lg:justify-center">
+          <a href="https://www.instagram.com/andamaq.colon/?hl=es" target="_blank" class="inline-flex items-center gap-3 rounded-full border border-andamaq-neon bg-andamaq-neon px-10 py-3 text-sm font-bold text-black transition-all duration-300 hover:bg-transparent hover:text-andamaq-neon hover:shadow-[0_0_20px_rgba(124,242,5,0.4)] group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 transition-transform duration-300 group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.85s-.011 3.584-.069 4.85c-.148 3.228-1.667 4.771-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.011-4.85-.07c-3.228-.148-4.771-1.667-4.919-4.919-.058-1.266-.07-1.646-.07-4.85s.012-3.584.07-4.85C2.318 3.854 3.837 2.31 7.15 2.163 8.415 2.105 8.795 2.163 12 2.163zm0-2.163C8.741 0 8.333.014 7.053.072 2.695.272.272 2.695.072 7.053.014 8.333 0 8.741 0 12s.014 3.667.072 4.947c.2 4.358 2.623 6.78 6.981 6.98 1.28.058 1.689.072 4.947.072s3.667-.014 4.947-.072c4.358-.2 6.78-2.623 6.98-6.98.058-1.28.072-1.689.072-4.947s-.014-3.667-.072-4.947c-.2-4.358-2.623-6.78-6.98-6.98C15.667.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zm0 10.162a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.88 1.44 1.44 0 000-2.88z" />
+            </svg>
+            Seguinos en Instagram
+          </a>
+        </div>
+      </div>
+
+      <div class="relative w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden border border-gray-800 shadow-2xl">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1003.4574141138205!2d-58.149568666102276!3d-32.225377794988646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95ae32e4a075bcad%3A0x85ed9bb1cfcbaa5d!2zUmFtw61yZXogMTU0LCBFMzI4NSBDb2zDs24sIEVudHJlIFLDrW9zLCBBcmdlbnRpbmE!5e0!3m2!1ses!2sus!4v1766273718452!5m2!1ses!2sus"
+          width="100%" 
+          height="100%" 
+          style="border:0;" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade"
+          class="w-full h-full grayscale hover:grayscale-0 transition-all duration-500"
+          title="Ubicación de Andamaq"
+        ></iframe>
+        
+        <div class="absolute bottom-4 left-4 bg-black/80 backdrop-blur-sm px-4 py-2 rounded-lg border border-andamaq-neon/50">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</footer>
+
+    <div
+      id="productModal"
+      class="fixed inset-0 z-50 hidden flex items-center justify-center p-4"
+    >
+      <div
+        class="absolute inset-0 bg-black/80 backdrop-blur-sm"
+        onclick="closeModal()"
+      ></div>
+
+      <div
+        class="relative w-full max-w-3xl bg-[#0D0D0D] border border-stone-900 rounded-2xl shadow-[0_0_50px_rgba(124,242,5,0.2)] overflow-hidden flex flex-col md:flex-row transform transition-all"
+      >
+        <button
+          onclick="closeModal()"
+          class="absolute top-3 right-3 z-20 bg-black/50 hover:bg-andamaq-neon hover:text-black text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors"
+        >
+          ✕
+        </button>
+
+        <div class="w-full md:w-1/2 h-64 md:h-auto bg-gray-900">
+          <img id="modalImg" src="" alt="" class="w-full h-full object-cover" />
+        </div>
+
+        <div class="w-full md:w-1/2 p-8 flex flex-col justify-center text-left">
+          <h3
+            id="modalTitle"
+            class="text-3xl font-bold text-andamaq-neon mb-4 font-exo"
+          >
+            Titulo
+          </h3>
+          <p
+            id="modalDesc"
+            class="text-gray-300 text-lg leading-relaxed mb-8 font-overpass"
+          >
+            Descripción del producto...
+          </p>
+
+          <a
+            href="#contacto"
+            onclick="closeModal()"
+            class="inline-block text-center w-full rounded-xl bg-andamaq-neon text-black font-bold py-3 hover:bg-white hover:shadow-[0_0_15px_#7CF205] transition-all duration-300"
+          >
+            Consultar Disponibilidad
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const modal = document.getElementById("productModal");
+      const modalImg = document.getElementById("modalImg");
+      const modalTitle = document.getElementById("modalTitle");
+      const modalDesc = document.getElementById("modalDesc");
+
+      // Función para abrir el modal con los datos de la card clickeada
+      function openModal(element) {
+        // Leer datos del HTML
+        const title = element.getAttribute("data-title");
+        const desc = element.getAttribute("data-desc");
+        const img = element.getAttribute("data-img");
+
+        // Llenar el modal
+        modalTitle.innerText = title;
+        modalDesc.innerText = desc;
+        modalImg.src = img;
+        modalImg.alt = title;
+
+        // Mostrar el modal
+        modal.classList.remove("hidden");
+      }
+
+      // Función para cerrar el modal
+      function closeModal() {
+        modal.classList.add("hidden");
+      }
+
+      // Cerrar con la tecla ESC
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "Escape") {
+          closeModal();
+        }
+      });
+    </script>
+  </body>
+</html>
