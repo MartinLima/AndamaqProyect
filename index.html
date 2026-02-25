@@ -181,7 +181,7 @@
     </header>
 
     <section
-      class="relative h-[90vh] flex flex-col justify-center items-center text-center bg-hero-pattern bg-cover bg-center bg-fixed p-4 pt-20"
+      class="relative h-[90vh] flex flex-col justify-center items-center text-center bg-hero-pattern bg-cover bg-center md:bg-fixed p-4 pt-20"
     >
       <!-- <h1 class="flex flex-col gap-2 text-shadow-strong">
         <span
@@ -501,11 +501,11 @@ Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación re
                 href="https://wa.me/5493447592955"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-3 rounded-full border border-andamaq-neon bg-andamaq-neon px-8 py-3 text-sm font-bold text-black transition-all duration-300 hover:bg-transparent hover:text-andamaq-neon hover:shadow-[0_0_20px_rgba(124,242,5,0.4)] group"
+                class="inline-flex items-center justify-center gap-3 rounded-full border border-andamaq-neon bg-andamaq-neon px-8 py-3 text-sm font-bold text-black transition-all duration-300 hover:bg-transparent hover:text-andamaq-neon hover:shadow-[0_0_20px_rgba(124,242,5,0.4)] group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 transition-transform duration-300 group-hover:scale-110"
+                  class="h-6 w-6 flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                 >
@@ -519,11 +519,11 @@ Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación re
               <a
                 href="https://www.instagram.com/andamaq.colon/?hl=es"
                 target="_blank"
-                class="inline-flex items-center gap-3 rounded-full border border-andamaq-neon bg-andamaq-neon px-8 py-3 text-sm font-bold text-black transition-all duration-300 hover:bg-transparent hover:text-andamaq-neon hover:shadow-[0_0_20px_rgba(124,242,5,0.4)] group"
+                class="inline-flex items-center justify-center gap-3 rounded-full border border-andamaq-neon bg-andamaq-neon px-8 py-3 text-sm font-bold text-black transition-all duration-300 hover:bg-transparent hover:text-andamaq-neon hover:shadow-[0_0_20px_rgba(124,242,5,0.4)] group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 transition-transform duration-300 group-hover:scale-110"
+                  class="h-6 w-6 flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
                   fill="currentColor"
                   viewBox="0 0 24 24"
                 >
@@ -536,11 +536,11 @@ Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación re
 
               <a
                 href="mailto:andamaq.colon@gmail.com?subject=Consulta%20Andamaq"
-                class="inline-flex items-center gap-3 rounded-full border border-andamaq-neon bg-andamaq-neon px-8 py-3 text-sm font-bold text-black transition-all duration-300 hover:bg-transparent hover:text-andamaq-neon hover:shadow-[0_0_20px_rgba(124,242,5,0.4)] group"
+                class="inline-flex items-center justify-center gap-3 rounded-full border border-andamaq-neon bg-andamaq-neon px-8 py-3 text-sm font-bold text-black transition-all duration-300 hover:bg-transparent hover:text-andamaq-neon hover:shadow-[0_0_20px_rgba(124,242,5,0.4)] group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  class="h-6 w-6 transition-transform duration-300 group-hover:scale-110"
+                  class="h-6 w-6 flex-shrink-0 transition-transform duration-300 group-hover:scale-110"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -661,7 +661,6 @@ Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación re
       const mobileLinks = document.querySelectorAll(".mobile-link");
       const modalWhatsappCta = document.getElementById("modal-whatsapp-cta");
       const footerWhatsappBtn = document.getElementById("contacto-whatsapp");
-      let modalScrollY = 0;
 
       // --- LÓGICA DEL MENÚ MÓVIL (Tu código anterior) ---
       if (mobileMenuBtn) {
@@ -720,11 +719,7 @@ Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación re
         // 2. Mostrar modal
         modal.classList.remove("hidden");
 
-        // 3. BLOQUEAR SCROLL DEL FONDO (especialmente en mobile)
-        modalScrollY = window.scrollY || window.pageYOffset;
-        document.body.style.position = "fixed";
-        document.body.style.top = `-${modalScrollY}px`;
-        document.body.style.width = "100%";
+        // 3. BLOQUEAR SCROLL DEL FONDO (sin cambiar posición del body)
         document.body.classList.add("overflow-hidden");
         document.documentElement.classList.add("overflow-hidden");
       }
@@ -736,10 +731,6 @@ Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación re
         // 2. RESTAURAR SCROLL DEL BODY
         document.body.classList.remove("overflow-hidden");
         document.documentElement.classList.remove("overflow-hidden");
-        document.body.style.position = "";
-        document.body.style.top = "";
-        document.body.style.width = "";
-        window.scrollTo(0, modalScrollY);
       }
 
       // Cerrar con ESC
