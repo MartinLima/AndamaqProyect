@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es" class="scroll-smooth overflow-x-hidden">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -61,12 +61,28 @@
         opacity: 1;
         pointer-events: auto;
       }
+
+      @keyframes whatsappBlink {
+        0%,
+        100% {
+          transform: scale(1);
+          box-shadow: 0 0 0 rgba(124, 242, 5, 0);
+        }
+        50% {
+          transform: scale(1.03);
+          box-shadow: 0 0 22px rgba(124, 242, 5, 0.7);
+        }
+      }
+
+      .whatsapp-attention {
+        animation: whatsappBlink 0.6s ease-in-out 4;
+      }
     </style>
   </head>
 
-  <body class="bg-body-gradient min-h-screen text-white font-overpass">
+  <body class="bg-body-gradient min-h-screen text-white font-overpass overflow-x-hidden">
     <header
-      class="sticky top-0 z-40 bg-andamaq-dark/95 border-b border-andamaq-green shadow-lg backdrop-blur-sm"
+      class="fixed top-0 left-0 right-0 w-full z-50 bg-andamaq-dark/95 border-b border-andamaq-green shadow-lg backdrop-blur-sm"
     >
       <div
         class="flex justify-between items-center px-4 py-2 max-w-7xl mx-auto relative"
@@ -165,9 +181,9 @@
     </header>
 
     <section
-      class="relative h-[75vh] flex flex-col justify-center items-center text-center bg-hero-pattern bg-cover bg-center bg-fixed p-4"
+      class="relative h-[90vh] flex flex-col justify-center items-center text-center bg-hero-pattern bg-cover bg-center bg-fixed p-4 pt-20"
     >
-      <h1 class="flex flex-col gap-2 text-shadow-strong">
+      <!-- <h1 class="flex flex-col gap-2 text-shadow-strong">
         <span
           class="font-exo text-6xl md:text-8xl lg:text-[110px] font-black text-andamaq-text tracking-wider leading-none"
           >Andamaq</span
@@ -175,11 +191,13 @@
         <span
           class="font-overpass text-xl md:text-3xl text-white tracking-widest font-normal"
           >Andamios y maquinaria</span
-        >
-      </h1>
+        > 
+      </h1> -->
+
+      <img src="imagenes\AndamaqLogo3.webp" alt="Andamaq Logo" class="md:w-1/3 lg:w-1/2"   />
     </section>
 
-    <main class="py-10 px-4 max-w-7xl mx-auto space-y-16">
+    <main class="py-4 px-4 max-w-7xl mx-auto space-y-16">
       <div id="quienes-somos" class="max-w-7xl mx-auto my-16 px-4 relative">
         <div
           class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-andamaq-green/10 blur-[80px] -z-10 rounded-full"
@@ -250,9 +268,9 @@
             </div>
           </div>
 
-          <div class="-mx-4 flex flex-wrap justify-center">
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div
-              class="w-full px-4 md:w-1/2 xl:w-1/3 cursor-pointer mb-8"
+              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
               onclick="openModal(this)"
               data-title="Apisonadora"
               data-desc="El Motopisón Niwa 160cc es una opción muy elegida para trabajos de compactación por su potencia y fácil manejo. Cuenta con un motor Honda GX160 de 4 tiempos, apto para trabajar sobre distintos tipos de superficies.
@@ -260,78 +278,39 @@
 Es un equipo resistente y práctico, con ruedas extraíbles que facilitan el traslado dentro de la obra y reducen el esfuerzo durante su uso."
               data-img="imagenes/Motopison.jpg"
             >
-              <div
-                class="overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-stone-900/10 shadow-lg duration-500 hover:shadow-[0_0_20px_rgba(124,242,5,0.1)] hover:-translate-y-1 group h-full flex flex-col backdrop-blur-sm"
-              >
-                <div class="h-80 overflow-hidden relative flex-shrink-0">
-                  <div
-                    class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 z-10 flex justify-center items-center opacity-0 group-hover:opacity-100"
-                  >
-                    <span
-                      class="bg-zinc-900 text-andamaq-neon font-bold text-sm tracking-wider px-6 py-2 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-400"
-                    >
-                      VER DETALLES
-                    </span>
-                  </div>
-                  <img
-                    src="imagenes/Motopison.jpg"
-                    alt="Apisonadora"
-                    class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100 bg-white"
-                  />
-                </div>
-                <div
-                  class="px-6 py-4 flex-grow flex flex-col justify-center items-center min-h-[5rem]"
-                >
-                  <h3
-                    class="text-xl font-semibold text-gray-200 group-hover:text-white transition-colors font-overpass text-center"
-                  >
-                    Apisonadora
-                  </h3>
-                </div>
-              </div>
+              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Motopison.jpg" alt="Apisonadora">
+              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
+                Apisonadora
+              </p>
+              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+                Motopisón Niwa 160cc con motor Honda GX160, ideal para compactación en obra.
+              </p>
+              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+                Ver detalles
+              </button>
             </div>
 
             <div
-              class="w-full px-4 md:w-1/2 xl:w-1/3 cursor-pointer mb-8"
+              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
               onclick="openModal(this)"
               data-title="Andamios Tubulares"
               data-desc="Estructuras modulares certificadas para trabajos en altura. Máxima seguridad, fácil montaje y adaptabilidad para fachadas, pintura y obras de albañilería."
               data-img="imagenes/Andamios.jpg"
             >
-              <div
-                class="overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-stone-900/10 shadow-lg duration-500 hover:shadow-[0_0_20px_rgba(124,242,5,0.1)] hover:-translate-y-1 group h-full flex flex-col backdrop-blur-sm"
-              >
-                <div class="h-80 overflow-hidden relative flex-shrink-0">
-                  <div
-                    class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 z-10 flex justify-center items-center opacity-0 group-hover:opacity-100"
-                  >
-                    <span
-                      class="bg-zinc-900 text-andamaq-neon font-bold text-sm tracking-wider px-6 py-2 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-400"
-                    >
-                      VER DETALLES
-                    </span>
-                  </div>
-                  <img
-                    src="imagenes/Andamios.jpg"
-                    alt="Andamios"
-                    class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100 bg-white"
-                  />
-                </div>
-
-                <div
-                  class="px-6 py-4 flex-grow flex flex-col justify-center items-center min-h-[5rem]"
-                >
-                  <h3
-                    class="text-xl font-semibold text-gray-200 group-hover:text-white transition-colors font-overpass text-center"
-                  >
-                    Andamios Tubulares
-                  </h3>
-                </div>
-              </div>
+              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Andamios.jpg" alt="Andamios Tubulares">
+              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
+                Andamios Tubulares
+              </p>
+              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+                Estructuras modulares certificadas para trabajos en altura con máxima seguridad.
+              </p>
+              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+                Ver detalles
+              </button>
             </div>
 
             <div
-              class="w-full px-4 md:w-1/2 xl:w-1/3 cursor-pointer mb-8"
+              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
               onclick="openModal(this)"
               data-title="Hoyadora"
               data-desc="La hoyadora a explosión de 63 cm³ es una solución eficiente para trabajos de perforación en suelo. Cuenta con asas para dos operarios, lo que brinda mayor control y estabilidad durante su uso.
@@ -339,40 +318,20 @@ Es un equipo resistente y práctico, con ruedas extraíbles que facilitan el tra
 Se encuentra disponible con mechas de 20 y 30 cm de diámetro y un brazo extensor que permite alcanzar hasta 1,5 m de profundidad, logrando perforaciones limpias y precisas en poco tiempo."
               data-img="imagenes/Hoyadora.png"
             >
-              <div
-                class="overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-stone-900/10 shadow-lg duration-500 hover:shadow-[0_0_20px_rgba(124,242,5,0.1)] hover:-translate-y-1 group h-full flex flex-col backdrop-blur-sm"
-              >
-                <div class="h-80 overflow-hidden relative flex-shrink-0">
-                  <div
-                    class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 z-10 flex justify-center items-center opacity-0 group-hover:opacity-100"
-                  >
-                    <span
-                      class="bg-zinc-900 text-andamaq-neon font-bold text-sm tracking-wider px-6 py-2 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-400"
-                    >
-                      VER DETALLES
-                    </span>
-                  </div>
-                  <img
-                    src="imagenes/Hoyadora.png"
-                    alt="Hoyadora"
-                    class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100 bg-white"
-                  />
-                </div>
-
-                <div
-                  class="px-6 py-4 flex-grow flex flex-col justify-center items-center min-h-[5rem]"
-                >
-                  <h3
-                    class="text-xl font-semibold text-gray-200 group-hover:text-white transition-colors font-overpass text-center"
-                  >
-                    Hoyadora
-                  </h3>
-                </div>
-              </div>
+              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Hoyadora.png" alt="Hoyadora">
+              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
+                Hoyadora
+              </p>
+              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+                Hoyadora a explosión de 63 cm³ con mechas de 20 y 30 cm de diámetro.
+              </p>
+              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+                Ver detalles
+              </button>
             </div>
 
             <div
-              class="w-full px-4 md:w-1/2 xl:w-1/3 cursor-pointer mb-8"
+              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
               onclick="openModal(this)"
               data-title="Motobomba"
               data-desc="La motobomba naftera de 4 tiempos es una solución potente y práctica para tareas de desagote. Ofrece un caudal de hasta 60.000 litros por hora y se entrega con manguera de succión de 5 metros, además de mangueras de desagote de 12 y 25 metros, lo que permite adaptarse a distintas necesidades de trabajo.
@@ -380,40 +339,20 @@ Se encuentra disponible con mechas de 20 y 30 cm de diámetro y un brazo extenso
 Es ideal para el desagote de fosas en obra, piletas y múltiples aplicaciones, brindando rapidez y eficiencia en cada uso."
               data-img="imagenes/Motobomba.jpg"
             >
-              <div
-                class="overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-stone-900/10 shadow-lg duration-500 hover:shadow-[0_0_20px_rgba(124,242,5,0.1)] hover:-translate-y-1 group h-full flex flex-col backdrop-blur-sm"
-              >
-                <div class="h-80 overflow-hidden relative flex-shrink-0">
-                  <div
-                    class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 z-10 flex justify-center items-center opacity-0 group-hover:opacity-100"
-                  >
-                    <span
-                      class="bg-zinc-900 text-andamaq-neon font-bold text-sm tracking-wider px-6 py-2 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-400"
-                    >
-                      VER DETALLES
-                    </span>
-                  </div>
-                  <img
-                    src="imagenes/Motobomba.jpg"
-                    alt="Motobomba"
-                    class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100 bg-white"
-                  />
-                </div>
-
-                <div
-                  class="px-6 py-4 flex-grow flex flex-col justify-center items-center min-h-[5rem]"
-                >
-                  <h3
-                    class="text-xl font-semibold text-gray-200 group-hover:text-white transition-colors font-overpass text-center"
-                  >
-                    Motobomba
-                  </h3>
-                </div>
-              </div>
+              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Motobomba.jpg" alt="Motobomba">
+              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
+                Motobomba
+              </p>
+              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+                Motobomba naftera 4 tiempos con caudal de hasta 60.000 litros por hora.
+              </p>
+              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+                Ver detalles
+              </button>
             </div>
 
             <div
-              class="w-full px-4 md:w-1/2 xl:w-1/3 cursor-pointer mb-8"
+              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
               onclick="openModal(this)"
               data-title="Martillo demoledor"
               data-desc="El martillo demoledor Makita de 72J y 30 kg está pensado para enfrentar tareas de demolición pesada, permitiendo trabajar sobre superficies de alta resistencia de manera eficiente y continua. Es una herramienta ideal para optimizar los tiempos en obra y encarar trabajos exigentes con mayor comodidad.
@@ -421,40 +360,20 @@ Es ideal para el desagote de fosas en obra, piletas y múltiples aplicaciones, b
 Cuenta con una fuerza de golpe de 72 joules, 870 golpes por minuto y alimentación monofásica, siendo apto para romper hormigón, pavimento y distintos tipos de superficies. Además, incorpora el sistema AVT (Anti Vibración), que reduce la transmisión de impactos al operario y mejora notablemente la experiencia de uso."
               data-img="imagenes/MartilloDemoledor.jpg"
             >
-              <div
-                class="overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-stone-900/10 shadow-lg duration-500 hover:shadow-[0_0_20px_rgba(124,242,5,0.1)] hover:-translate-y-1 group h-full flex flex-col backdrop-blur-sm"
-              >
-                <div class="h-80 overflow-hidden relative flex-shrink-0">
-                  <div
-                    class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 z-10 flex justify-center items-center opacity-0 group-hover:opacity-100"
-                  >
-                    <span
-                      class="bg-zinc-900 text-andamaq-neon font-bold text-sm tracking-wider px-6 py-2 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-400"
-                    >
-                      VER DETALLES
-                    </span>
-                  </div>
-                  <img
-                    src="imagenes/MartilloDemoledor.jpg"
-                    alt="Martillo demoledor"
-                    class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100 bg-white"
-                  />
-                </div>
-
-                <div
-                  class="px-6 py-4 flex-grow flex flex-col justify-center items-center min-h-[5rem]"
-                >
-                  <h3
-                    class="text-xl font-semibold text-gray-200 group-hover:text-white transition-colors font-overpass text-center"
-                  >
-                    Martillo demoledor
-                  </h3>
-                </div>
-              </div>
+              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/MartilloDemoledor.jpg" alt="Martillo demoledor">
+              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
+                Martillo demoledor
+              </p>
+              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+                Martillo Makita 72J y 30 kg con sistema Anti Vibración para demolición pesada.
+              </p>
+              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+                Ver detalles
+              </button>
             </div>
 
             <div
-              class="w-full px-4 md:w-1/2 xl:w-1/3 cursor-pointer mb-8"
+              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
               onclick="openModal(this)"
               data-title="Grupo Electrógeno"
               data-desc="El generador eléctrico Niwa es un grupo electrógeno monofásico de 10 kVA, equipado con un motor a explosión de cuatro tiempos de 7 HP y arranque eléctrico, pensado para brindar energía de forma confiable cuando más se necesita.
@@ -462,40 +381,20 @@ Cuenta con una fuerza de golpe de 72 joules, 870 golpes por minuto y alimentaci�
 Es una solución práctica para comienzos de obra, cortes de la red doméstica o para llevar electricidad a zonas remotas, ofreciendo autonomía y versatilidad en distintos escenarios de uso."
               data-img="imagenes/Grupo-electrogeno-naftero.png"
             >
-              <div
-                class="overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-stone-900/10 shadow-lg duration-500 hover:shadow-[0_0_20px_rgba(124,242,5,0.1)] hover:-translate-y-1 group h-full flex flex-col backdrop-blur-sm"
-              >
-                <div class="h-80 overflow-hidden relative flex-shrink-0">
-                  <div
-                    class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 z-10 flex justify-center items-center opacity-0 group-hover:opacity-100"
-                  >
-                    <span
-                      class="bg-zinc-900 text-andamaq-neon font-bold text-sm tracking-wider px-6 py-2 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-400"
-                    >
-                      VER DETALLES
-                    </span>
-                  </div>
-                  <img
-                    src="imagenes/Grupo-electrogeno-naftero.png"
-                    alt="Grupo Electrógeno"
-                    class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100 bg-white"
-                  />
-                </div>
-
-                <div
-                  class="px-6 py-4 flex-grow flex flex-col justify-center items-center min-h-[5rem]"
-                >
-                  <h3
-                    class="text-xl font-semibold text-gray-200 group-hover:text-white transition-colors font-overpass text-center"
-                  >
-                    Grupo Electrógeno
-                  </h3>
-                </div>
-              </div>
+              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Grupo-electrogeno-naftero.png" alt="Grupo Electrógeno">
+              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
+                Grupo Electrógeno
+              </p>
+              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+                Generador Niwa monofásico de 10 kVA con motor 7 HP y arranque eléctrico.
+              </p>
+              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+                Ver detalles
+              </button>
             </div>
 
             <div
-              class="w-full px-4 md:w-1/2 xl:w-1/3 cursor-pointer mb-8"
+              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
               onclick="openModal(this)"
               data-title="Allanadora"
               data-desc="La allanadora a explosión de 90 cm es una herramienta pensada para obtener acabados de alta calidad en pisos de hormigón. Su amplio diámetro de trabajo permite cubrir grandes superficies de manera eficiente, optimizando tiempos en obra.
@@ -503,170 +402,91 @@ Es una solución práctica para comienzos de obra, cortes de la red doméstica o
 Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación regulable, lo que posibilita adaptarse a distintas terminaciones según la necesidad. Ideal para el llaneado de pisos de grandes dimensiones, logrando una superficie uniforme y prolija."
               data-img="imagenes/Allanadora.jpg"
             >
-              <div
-                class="overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-stone-900/10 shadow-lg duration-500 hover:shadow-[0_0_20px_rgba(124,242,5,0.1)] hover:-translate-y-1 group h-full flex flex-col backdrop-blur-sm"
-              >
-                <div class="h-80 overflow-hidden relative flex-shrink-0">
-                  <div
-                    class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 z-10 flex justify-center items-center opacity-0 group-hover:opacity-100"
-                  >
-                    <span
-                      class="bg-zinc-900 text-andamaq-neon font-bold text-sm tracking-wider px-6 py-2 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-400"
-                    >
-                      VER DETALLES
-                    </span>
-                  </div>
-                  <img
-                    src="imagenes/Allanadora.jpg"
-                    alt="Allanadora"
-                    class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100 bg-white"
-                  />
-                </div>
-
-                <div
-                  class="px-6 py-4 flex-grow flex flex-col justify-center items-center min-h-[5rem]"
-                >
-                  <h3
-                    class="text-xl font-semibold text-gray-200 group-hover:text-white transition-colors font-overpass text-center"
-                  >
-                    Allanadora
-                  </h3>
-                </div>
-              </div>
+              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Allanadora.jpg" alt="Allanadora">
+              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
+                Allanadora
+              </p>
+              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+                Allanadora a explosión de 90 cm para acabados de alta calidad en hormigón.
+              </p>
+              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+                Ver detalles
+              </button>
             </div>
 
             <div
-              class="w-full px-4 md:w-1/2 xl:w-1/3 cursor-pointer mb-8"
+              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
               onclick="openModal(this)"
               data-title="Motosierra"
               data-desc="Esta motosierra cuenta con un motor de 35 cc y espada de 40 cm, combinando buen rendimiento con un manejo cómodo. Su diseño liviano y fácil de usar la hace ideal para podas domésticas y corte de troncos, permitiendo trabajar con mayor control y precisión."
               data-img="imagenes/Motosierra.webp"
             >
-              <div
-                class="overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-stone-900/10 shadow-lg duration-500 hover:shadow-[0_0_20px_rgba(124,242,5,0.1)] hover:-translate-y-1 group h-full flex flex-col backdrop-blur-sm"
-              >
-                <div class="h-80 overflow-hidden relative flex-shrink-0">
-                  <div
-                    class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 z-10 flex justify-center items-center opacity-0 group-hover:opacity-100"
-                  >
-                    <span
-                      class="bg-zinc-900 text-andamaq-neon font-bold text-sm tracking-wider px-6 py-2 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-400"
-                    >
-                      VER DETALLES
-                    </span>
-                  </div>
-                  <img
-                    src="imagenes/Motosierra.webp"
-                    alt="Motosierra"
-                    class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100 bg-white"
-                  />
-                </div>
-
-                <div
-                  class="px-6 py-4 flex-grow flex flex-col justify-center items-center min-h-[5rem]"
-                >
-                  <h3
-                    class="text-xl font-semibold text-gray-200 group-hover:text-white transition-colors font-overpass text-center"
-                  >
-                    Motosierra
-                  </h3>
-                </div>
-              </div>
+              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Motosierra.webp" alt="Motosierra">
+              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
+                Motosierra
+              </p>
+              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+                Motor de 35 cc y espada de 40 cm, ideal para podas y corte de troncos.
+              </p>
+              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+                Ver detalles
+              </button>
             </div>
 
             <div
-              class="w-full px-4 md:w-1/2 xl:w-1/3 cursor-pointer mb-8"
+              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
               onclick="openModal(this)"
               data-title="Amoladora Angular"
               data-desc="La amoladora angular Milwaukee de 9” está pensada para quienes necesitan una herramienta firme y rendidora en trabajos exigentes. Es ideal para cortes intensivos en hierros, perfiles metálicos y mampostería, acompañando sin problemas las tareas pesadas de obra y mantenimiento."
               data-img="imagenes/Amoladora.png"
             >
-              <div
-                class="overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-border-stone-900/10 shadow-lg duration-500 hover:shadow-[0_0_20px_rgba(124,242,5,0.1)] hover:-translate-y-1 group h-full flex flex-col backdrop-blur-sm"
-              >
-                <div class="h-80 overflow-hidden relative flex-shrink-0">
-                  <div
-                    class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 z-10 flex justify-center items-center opacity-0 group-hover:opacity-100"
-                  >
-                    <span
-                      class="bg-zinc-900 text-andamaq-neon font-bold text-sm tracking-wider px-6 py-2 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-400"
-                    >
-                      VER DETALLES
-                    </span>
-                  </div>
-                  <img
-                    src="imagenes/Amoladora.png"
-                    alt="Amoladora"
-                    class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100 bg-white"
-                  />
-                </div>
-
-                <div
-                  class="px-6 py-4 flex-grow flex flex-col justify-center items-center min-h-[5rem]"
-                >
-                  <h3
-                    class="text-xl font-semibold text-gray-200 group-hover:text-white transition-colors font-overpass text-center"
-                  >
-                    Amoladora Angular
-                  </h3>
-                </div>
-              </div>
+              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Amoladora.png" alt="Amoladora Angular">
+              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
+                Amoladora Angular
+              </p>
+              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+                Milwaukee de 9" para cortes intensivos en hierro, metal y mampostería.
+              </p>
+              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+                Ver detalles
+              </button>
             </div>
 
               <div
-              class="w-full px-4 md:w-1/2 xl:w-1/3 cursor-pointer mb-8"
+              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
               onclick="openModal(this)"
               data-title="Martillo Demoledor"
               data-desc="El martillo demoledor Bosch ofrece 7 joules de potencia, ideal para trabajos intensivos de obra en general. Su diseño liviano y maniobrable permite trabajar con comodidad en pisos, paredes y techos, facilitando tareas prolongadas sin perder control."
               data-img="imagenes/Taladro.webp"
             >
-              <div
-                class="overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:border-border-stone-900/10 shadow-lg duration-500 hover:shadow-[0_0_20px_rgba(124,242,5,0.1)] hover:-translate-y-1 group h-full flex flex-col backdrop-blur-sm"
-              >
-                <div class="h-80 overflow-hidden relative flex-shrink-0">
-                  <div
-                    class="absolute inset-0 bg-black/0 group-hover:bg-black/50 transition-colors duration-300 z-10 flex justify-center items-center opacity-0 group-hover:opacity-100"
-                  >
-                    <span
-                      class="bg-zinc-900 text-andamaq-neon font-bold text-sm tracking-wider px-6 py-2 rounded-full shadow-lg transform scale-90 group-hover:scale-100 transition-all duration-400"
-                    >
-                      VER DETALLES
-                    </span>
-                  </div>
-                  <img
-                    src="imagenes/Taladro.webp"
-                    alt="Martillo Demoledor"
-                    class="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700 opacity-90 group-hover:opacity-100 bg-white"
-                  />
-                </div>
-                <div
-                  class="px-6 py-4 flex-grow flex flex-col justify-center items-center min-h-[5rem]"
-                >
-                  <h3
-                    class="text-xl font-semibold text-gray-200 group-hover:text-white transition-colors font-overpass text-center"
-                  >
-                    Martillo Demoledor
-                  </h3>
-                </div>
-              </div>
+              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Taladro.webp" alt="Martillo Demoledor">
+              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
+                Martillo Demoledor
+              </p>
+              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+                Martillo Bosch de 7 joules, liviano y maniobrable para obra general.
+              </p>
+              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+                Ver detalles
+              </button>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer id="contacto" class="bg-[#0D0D0D] border-t border-andamaq-green/50">
+    <footer id="contacto" class="bg-[#0D0D0D] border-t border-andamaq-green/80 pb-8">
       <div
         class="mx-auto max-w-7xl px-4 pt-16 pb-16 sm:px-6 lg:px-8 lg:pt-24 lg:pb-16"
       >
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div class="text-center lg:text-center sm:text-pretty lg:text-pretty">
-            <h2 class="text-3xl font-extrabold text-white sm:text-5xl font-exo">
+            <h2 class="text-3xl font-extrabold text-white sm:text-4xl md:text-5xl font-exo">
               ¿Tenés un proyecto en mente?
             </h2>
 
             <p
-              class="mt-4 max-w-xl mx-auto lg:mx-0 text-gray-400 font-overpass text-lg"
+              class="mt-4 max-w-xl mx-auto lg:mx-0 text-gray-400 font-overpass text-lg "
             >
               Estamos listos para asesorarte. Encontranos en
               <span class="text-white font-bold"
@@ -675,49 +495,31 @@ Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación re
               o contactanos directamente.
             </p>
 
-            <div
-              class="mt-6 flex flex-col md:flex-row justify-center lg:justify-start items-center gap-4 text-andamaq-neon font-bold text-lg"
-            >
-              <span class="flex items-center gap-2">
+            <div class="mt-8 flex flex-col sm:flex-row sm:flex-wrap justify-center lg:justify-center gap-4">
+              <a
+                id="contacto-whatsapp"
+                href="https://wa.me/5493447592955"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-3 rounded-full border border-andamaq-neon bg-andamaq-neon px-8 py-3 text-sm font-bold text-black transition-all duration-300 hover:bg-transparent hover:text-andamaq-neon hover:shadow-[0_0_20px_rgba(124,242,5,0.4)] group"
+              >
                 <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 transition-transform duration-300 group-hover:scale-110"
                   viewBox="0 0 24 24"
+                  fill="currentColor"
                 >
                   <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                    d="M12 2a10 10 0 00-8.66 15l-1.25 4.57a.8.8 0 00.98.98L7.64 21A10 10 0 1012 2zm5.86 14.38c-.24.67-1.4 1.28-1.94 1.36-.5.07-1.13.1-1.82-.14-.42-.14-.95-.3-1.64-.6-2.89-1.25-4.77-4.32-4.92-4.52-.14-.2-1.17-1.55-1.17-2.95 0-1.4.73-2.08 1-2.36.24-.24.53-.3.7-.3h.5c.16 0 .38-.06.6.46.24.56.82 1.95.89 2.09.08.14.13.3.03.5-.1.2-.16.3-.31.47-.16.18-.33.4-.47.53-.16.16-.33.34-.14.67.2.34.86 1.4 1.85 2.27 1.27 1.13 2.34 1.49 2.67 1.66.33.16.52.14.71-.08.2-.24.85-.99 1.08-1.33.22-.34.46-.28.78-.17.33.11 2.06.97 2.41 1.15.34.16.57.24.65.37.08.13.08.75-.16 1.41z"
                   />
                 </svg>
-                +54 9 3447 592955
-              </span>
-              <span class="hidden md:block text-gray-600">|</span>
-              <span class="flex items-center gap-2">
-                <svg
-                  class="w-5 h-5"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
-                andamaq.colon@gmail.com
-              </span>
-            </div>
+                Escribinos por WhatsApp
+              </a>
 
-            <div class="mt-8 flex justify-center lg:justify-center">
               <a
                 href="https://www.instagram.com/andamaq.colon/?hl=es"
                 target="_blank"
-                class="inline-flex items-center gap-3 rounded-full border border-andamaq-neon bg-andamaq-neon px-10 py-3 text-sm font-bold text-black transition-all duration-300 hover:bg-transparent hover:text-andamaq-neon hover:shadow-[0_0_20px_rgba(124,242,5,0.4)] group"
+                class="inline-flex items-center gap-3 rounded-full border border-andamaq-neon bg-andamaq-neon px-8 py-3 text-sm font-bold text-black transition-all duration-300 hover:bg-transparent hover:text-andamaq-neon hover:shadow-[0_0_20px_rgba(124,242,5,0.4)] group"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -731,11 +533,32 @@ Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación re
                 </svg>
                 Seguinos en Instagram
               </a>
+
+              <a
+                href="mailto:andamaq.colon@gmail.com?subject=Consulta%20Andamaq"
+                class="inline-flex items-center gap-3 rounded-full border border-andamaq-neon bg-andamaq-neon px-8 py-3 text-sm font-bold text-black transition-all duration-300 hover:bg-transparent hover:text-andamaq-neon hover:shadow-[0_0_20px_rgba(124,242,5,0.4)] group"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6 transition-transform duration-300 group-hover:scale-110"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  />
+                </svg>
+                Enviar correo
+              </a>
             </div>
           </div>
 
           <div
-            class="relative w-full h-[300px] lg:h-[400px] rounded-2xl overflow-hidden border border-gray-800 shadow-2xl"
+            class="relative w-full h-[300px] lg:h-[350px] rounded-2xl overflow-hidden border border-gray-800 shadow-2xl"
           >
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1003.4574141138205!2d-58.149568666102276!3d-32.225377794988646!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x95ae32e4a075bcad%3A0x85ed9bb1cfcbaa5d!2zUmFtw61yZXogMTU0LCBFMzI4NSBDb2zDs24sIEVudHJlIFLDrW9zLCBBcmdlbnRpbmE!5e0!3m2!1ses!2sus!4v1766273718452!5m2!1ses!2sus"
@@ -759,48 +582,71 @@ Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación re
 
     <div
       id="productModal"
-      class="fixed inset-0 z-50 hidden flex items-center justify-center p-4"
+      class="fixed inset-0 z-50 hidden overflow-y-auto"
+      role="dialog"
+      tabindex="-1"
+      aria-labelledby="modalTitle"
     >
+      <!-- Backdrop -->
       <div
-        class="absolute inset-0 bg-black/80 backdrop-blur-sm"
+        class="fixed inset-0 bg-black/80 backdrop-blur-sm transition-opacity"
         onclick="closeModal()"
       ></div>
 
-      <div
-        class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto bg-[#0D0D0D] border border-stone-900 rounded-2xl shadow-[0_0_50px_rgba(124,242,5,0.2)] flex flex-col md:flex-row transform transition-all scrollbar-hide"
-      >
-        <button
-          onclick="closeModal()"
-          class="absolute top-3 right-3 z-20 bg-black/50 hover:bg-andamaq-neon hover:text-black text-white rounded-full w-8 h-8 flex items-center justify-center transition-colors"
+      <!-- Modal container -->
+      <div class="flex min-h-full items-center justify-center p-4">
+        <div
+          class="relative w-full max-w-3xl bg-[#111111] border border-white/10 rounded-2xl shadow-2xl overflow-hidden transform transition-all"
         >
-          ✕
-        </button>
+          <!-- Content wrapper: column on mobile, row on desktop -->
+          <div class="flex flex-col md:flex-row">
+            <!-- Image section -->
+            <div class="w-full md:w-1/2 h-64 md:h-auto md:min-h-[400px] bg-white">
+              <img
+                id="modalImg"
+                src=""
+                alt=""
+                class="w-full h-full object-contain"
+              />
+            </div>
 
-        <div class="w-full md:w-1/2 h-80 md:h-auto bg-gray-900">
-          <img id="modalImg" src="" alt="" class="w-full h-full object-contain bg-white" />
-        </div>
+            <!-- Text content section -->
+            <div class="w-full md:w-1/2 p-6 sm:p-8 flex flex-col justify-center">
+              <h3
+                id="modalTitle"
+                class="text-2xl sm:text-3xl font-bold text-andamaq-neon mb-4 font-exo"
+              >
+                Título
+              </h3>
+              <p
+                id="modalDesc"
+                class="text-gray-300 text-base leading-relaxed mb-6 font-overpass"
+              >
+                Descripción del producto...
+              </p>
 
-        <div class="w-full md:w-1/2 p-8 flex flex-col justify-center text-left">
-          <h3
-            id="modalTitle"
-            class="text-3xl font-bold text-andamaq-neon mb-4 font-exo"
-          >
-            Titulo
-          </h3>
-          <p
-            id="modalDesc"
-            class="text-gray-300 text-lg leading-relaxed mb-8 font-overpass"
-          >
-            Descripción del producto...
-          </p>
-
-          <a
-            href="#contacto"
-            onclick="closeModal()"
-            class="inline-block text-center w-full rounded-xl bg-andamaq-neon text-black font-bold py-3 hover:bg-white hover:shadow-[0_0_15px_#7CF205] transition-all duration-300"
-          >
-            Consultar Disponibilidad
-          </a>
+              <div class="flex flex-col sm:flex-row gap-3 mt-auto">
+                <a
+                  id="modal-whatsapp-cta"
+                  href="#contacto-whatsapp"
+                  onclick="closeModal()"
+                  class="flex-1 inline-flex items-center justify-center gap-2 rounded-lg bg-andamaq-neon px-5 py-3 text-sm font-bold text-black text-center transition-all duration-300 hover:bg-white hover:shadow-[0_0_15px_rgba(124,242,5,0.4)]"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                  Consultar Disponibilidad
+                </a>
+                <button
+                  type="button"
+                  onclick="closeModal()"
+                  class="inline-flex items-center justify-center gap-2 rounded-lg border border-white/20 px-5 py-3 text-sm font-semibold text-gray-300 transition-all duration-300 hover:border-andamaq-neon hover:text-andamaq-neon"
+                >
+                  Cerrar
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -813,6 +659,9 @@ Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación re
       const mobileMenuBtn = document.getElementById("mobile-menu-btn");
       const mobileMenu = document.getElementById("mobile-menu");
       const mobileLinks = document.querySelectorAll(".mobile-link");
+      const modalWhatsappCta = document.getElementById("modal-whatsapp-cta");
+      const footerWhatsappBtn = document.getElementById("contacto-whatsapp");
+      let modalScrollY = 0;
 
       // --- LÓGICA DEL MENÚ MÓVIL (Tu código anterior) ---
       if (mobileMenuBtn) {
@@ -843,6 +692,18 @@ Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación re
         });
       }
 
+      if (modalWhatsappCta && footerWhatsappBtn) {
+        modalWhatsappCta.addEventListener("click", () => {
+          footerWhatsappBtn.classList.remove("whatsapp-attention");
+          void footerWhatsappBtn.offsetWidth;
+          footerWhatsappBtn.classList.add("whatsapp-attention");
+
+          setTimeout(() => {
+            footerWhatsappBtn.classList.remove("whatsapp-attention");
+          }, 2600);
+        });
+      }
+
       // --- LÓGICA DEL MODAL (Actualizada para el scroll) ---
 
       function openModal(element) {
@@ -859,8 +720,13 @@ Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación re
         // 2. Mostrar modal
         modal.classList.remove("hidden");
 
-        // 3. BLOQUEAR SCROLL DEL BODY (Esta es la magia)
+        // 3. BLOQUEAR SCROLL DEL FONDO (especialmente en mobile)
+        modalScrollY = window.scrollY || window.pageYOffset;
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${modalScrollY}px`;
+        document.body.style.width = "100%";
         document.body.classList.add("overflow-hidden");
+        document.documentElement.classList.add("overflow-hidden");
       }
 
       function closeModal() {
@@ -869,6 +735,11 @@ Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación re
 
         // 2. RESTAURAR SCROLL DEL BODY
         document.body.classList.remove("overflow-hidden");
+        document.documentElement.classList.remove("overflow-hidden");
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.width = "";
+        window.scrollTo(0, modalScrollY);
       }
 
       // Cerrar con ESC
