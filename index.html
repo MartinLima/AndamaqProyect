@@ -30,7 +30,7 @@
             },
             backgroundImage: {
               "hero-pattern":
-                "linear-gradient(to bottom, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.6)), url('imagenes/Trabajadores-En-Andamio.png')",
+                "linear-gradient(to bottom, rgba(0, 0, 0, 0.98), rgba(0, 0, 0, 0.6)), url('imagenes/hero2.jpeg')",
               "card-gradient":
                 "linear-gradient(to bottom, rgb(60, 150, 0), rgba(14, 60, 0, 0.75))",
               "body-gradient":
@@ -76,6 +76,60 @@
 
       .whatsapp-attention {
         animation: whatsappBlink 0.6s ease-in-out 4;
+      }
+
+      .cta-radial {
+        position: relative;
+        overflow: hidden;
+        isolation: isolate;
+      }
+
+      .cta-radial::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 24px;
+        height: 24px;
+        border-radius: 9999px;
+        transform: translate(-50%, -50%) scale(0);
+        transform-origin: center;
+        opacity: 0;
+        transition:
+          transform 0.95s cubic-bezier(0.2, 1, 0.22, 1),
+          opacity 0.55s ease;
+        will-change: transform, opacity;
+        z-index: 0;
+      }
+
+      .cta-radial > span {
+        position: relative;
+        z-index: 1;
+        transition: color 0.28s ease, transform 0.28s ease;
+      }
+
+      .cta-radial:hover::before,
+      .cta-radial:focus-visible::before {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(18);
+      }
+
+      .cta-radial-dark::before {
+        background: #ffffff;
+      }
+
+      .cta-radial-dark:hover > span,
+      .cta-radial-dark:focus-visible > span {
+        color: #0d0d0d;
+      }
+
+      .cta-radial-light::before {
+        background: #ffffff;
+      }
+
+      .cta-radial-light:hover > span,
+      .cta-radial-light:focus-visible > span {
+        color: #0d0d0d;
       }
 
     </style>
@@ -198,45 +252,191 @@
       <img src="imagenes\AndamaqLogo3.webp" alt="Andamaq Logo" class="md:w-1/3 lg:w-1/2"   />
     </section>
 
-    <main class="py-4 px-4 max-w-7xl mx-auto space-y-16">
-      <div id="quienes-somos" class="max-w-7xl mx-auto my-16 px-4 relative">
+    <main class="py-4 px-4 max-w-7xl mx-auto space-y-0">
+      <section id="quienes-somos" class="relative mt-20 mb-0 px-4">
         <div
-          class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-andamaq-green/10 blur-[80px] -z-10 rounded-full"
-        ></div>
-
-        <div
-          class="bg-white/5 backdrop-blur-md border border-white/10 rounded-3xl p-10 md:p-14 text-center shadow-2xl relative overflow-hidden"
+          class="relative mx-auto overflow-hidden rounded-[2rem] bg-white/[0.03] border border-white/10 shadow-2xl backdrop-blur-md"
         >
+
           <div
-            class="absolute top-4 left-6 text-andamaq-neon/10 font-exo text-9xl font-black leading-none select-none"
+            class="relative grid gap-10 px-6 py-10 sm:px-10 lg:grid-cols-2 lg:items-center lg:px-14 lg:py-16"
           >
-            “
-          </div>
+            <div class="relative z-10 text-center lg:text-left">
 
-          <div class="relative z-10 pt-9">
-            <h2
-              class="text-3xl md:text-4xl font-exo font-bold text-white tracking-wide mb-6 inline-flex flex-col items-center"
-            >
-              ¿Quiénes somos?
-              <span
-                class="w-4/5 h-0.5 bg-andamaq-neon rounded-full mt-3"
-              ></span>
-            </h2>
-
-            <p
-              class="text-lg md:text-xl text-gray-300 font-overpass leading-relaxed font-light mx-auto max-w-2xl lg:text-pretty tracking-wide"
-            >
-              Somos una empresa dedicada al alquiler de
-              <strong class="text-white font-semibold"
-                >andamios y maquinaria</strong
+              <h2
+                class="mt-6 font-exo text-4xl font-black uppercase leading-[0.92] tracking-tight sm:text-5xl lg:text-6xl"
               >
-              para la construcción. Te ofrecemos una solución segura, confiable
-              y adaptada a las necesidades de cada obra, priorizando siempre la
-              calidad y los plazos para nuestros clientes.
-            </p>
+                Soluciones firmes para <span class="text-andamaq-neon">cada obra</span>
+              </h2>
+
+              <p
+                class="mt-5 max-w-xl text-base leading-8 text-gray-300 sm:text-lg"
+              >
+                Somos una empresa dedicada al alquiler de <strong class="text-white font-semibold">andamios y maquinaria</strong>
+                para la construcción. Te ofrecemos equipos listos para trabajar, atención clara y una respuesta ágil para que el ritmo de la obra no se frene.
+              </p>
+
+              <div class="mt-6 flex flex-col gap-2 sm:flex-row sm:justify-center sm:gap-3 lg:justify-start">
+                <a
+                  href="#catalogo"
+                  class="cta-radial cta-radial-dark inline-flex items-center justify-center rounded-full bg-andamaq-neon px-6 py-2.5 text-sm font-bold uppercase tracking-[0.16em] text-black transition-all duration-500"
+                >
+                  <span>Ver catálogo</span>
+                </a>
+
+                <a
+                  href="#contacto"
+                  class="cta-radial cta-radial-light inline-flex items-center justify-center rounded-full border border-andamaq-neon/40 px-6 py-2.5 text-sm font-bold uppercase tracking-[0.16em] text-andamaq-neon transition-all duration-500 hover:border-white"
+                >
+                  <span>Hablemos de tu obra</span>
+                </a>
+              </div>
+            </div>
+
+            <div class="relative z-10 flex items-center justify-center">
+              <div class="relative w-full max-w-lg">
+                <div
+                  class="rounded-[1.75rem] bg-[#111111]/95 p-6 shadow-2xl backdrop-blur-sm sm:p-8"
+                >
+                  <div class="flex flex-col gap-6">
+                    <div class="flex items-start justify-between gap-4">
+                      <div>
+                        <p class="text-xs font-bold uppercase tracking-[0.35em] text-gray-400">
+                          Andamaq
+                        </p>
+                        <h3 class="mt-3 text-2xl font-exo font-black text-white sm:text-3xl">
+                          Firme. Cercano. Resolutivo.
+                        </h3>
+                      </div>
+
+                    </div>
+
+                    <div class="flex flex-col gap-4">
+                      <div
+                        class="flex items-center gap-4 rounded-2xl bg-white/5 p-4 text-left shadow-sm shadow-black/20 transition-transform duration-300 hover:-translate-y-1"
+                      >
+                        <div
+                          class="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-[#101510]"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-white"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M20 12v4.5c0 1.9-1.2 3.6-3 4.2l-5 1.8-5-1.8c-1.8-.6-3-2.3-3-4.2V7.2c0-.8.5-1.5 1.2-1.8L12 2l6.8 3.4c.7.3 1.2 1 1.2 1.8V12z"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="m9.5 12 1.8 1.8L15 10"
+                            />
+                          </svg>
+                        </div>
+                        <div class="min-w-0">
+                          <p class="text-xs font-bold font-exo uppercase tracking-[0.1em] text-gray-400">
+                            Seguridad
+                          </p>
+                          <p class="mt-1 text-sm leading-6 text-gray-200">
+                            Priorizamos equipos confiables y un uso pensado para obra.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div
+                        class="flex items-center gap-4 rounded-2xl bg-andamaq-neon/10 p-4 text-left shadow-sm shadow-black/20 transition-transform duration-300 hover:-translate-y-1"
+                      >
+                        <div
+                          class="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-[#173300]"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-andamaq-neon"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="2"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="m11 17 2 2a1 1 0 1 0 3-3"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="m21 3 1 11h-2"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"
+                            />
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M3 4h8"
+                            />
+                          </svg>
+                        </div>
+                        <div class="min-w-0">
+                          <p class="text-xs font-exo uppercase tracking-[0.1em] text-andamaq-neon">
+                            Asesoramiento
+                          </p>
+                          <p class="mt-1 text-sm leading-6 text-gray-100">
+                            Te orientamos para elegir la solución adecuada según la tarea.
+                          </p>
+                        </div>
+                      </div>
+
+                      <div
+                        class="flex items-center gap-4 rounded-2xl bg-[#0f140f] p-4 text-left shadow-sm shadow-black/20 transition-transform duration-300 hover:-translate-y-1"
+                      >
+                        <div
+                          class="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-white/10"
+                        >
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6 text-white"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M13 2 4 14h6l-1 8 11-14h-6l-1-6z"
+                            />
+                          </svg>
+                        </div>
+                        <div class="min-w-0">
+                          <p class="text-xs font-exo uppercase tracking-[0.1em] text-gray-400">
+                            Respuesta ágil
+                          </p>
+                          <p class="mt-1 text-sm leading-6 text-gray-200">
+                            Coordinamos rápido para que tu proyecto avance sin demoras.
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
 
       <section id="catalogo" class="pt-10 pb-10 lg:pb-20 relative">
         <div class="container mx-auto px-4">
