@@ -19,7 +19,7 @@
         theme: {
           extend: {
             colors: {
-              "andamaq-dark": "#0D0D0D",
+              "andamaq-dark": "#030608",
               "andamaq-green": "#4A8C08",
               "andamaq-neon": "#7CF205",
               "andamaq-text": "#71e001",
@@ -34,7 +34,7 @@
               "card-gradient":
                 "linear-gradient(to bottom, rgb(60, 150, 0), rgba(14, 60, 0, 0.75))",
               "body-gradient":
-                "linear-gradient(180deg, #041d01 5%, #0D0D0D 45%)",
+                "linear-gradient(to bottom, #000000 0%, #152331 58%, #0f1723 100%)",
             },
           },
         },
@@ -132,12 +132,161 @@
         color: #0d0d0d;
       }
 
+      .catalog-card {
+        position: relative;
+        overflow: hidden;
+        border: none;
+        background: linear-gradient(165deg, #1a231d 0%, #121a15 55%, #0b120d 100%);
+        box-shadow:
+          0 14px 35px rgba(1, 4, 10, 0.68),
+          inset 0 1px 0 rgba(255, 255, 255, 0.01);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .catalog-card::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(145deg, rgba(124, 242, 5, 0.08) 0%, rgba(124, 242, 5, 0.022) 34%, rgba(7, 10, 14, 0.34) 100%);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      .catalog-card > * {
+        position: relative;
+        z-index: 1;
+      }
+
+      .catalog-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 24px 44px rgba(0, 2, 7, 0.84);
+      }
+
+      .catalog-card-tone-1 {
+        background: linear-gradient(165deg, #1c2a1f 0%, #131d16 54%, #0b130d 100%);
+      }
+
+      .catalog-card-tone-2 {
+        background: linear-gradient(165deg, #1f2822 0%, #151d18 54%, #0c130e 100%);
+      }
+
+      .catalog-card-tone-3 {
+        background: linear-gradient(165deg, #1b291f 0%, #121c15 54%, #0b130d 100%);
+      }
+
+      .catalog-card-tone-4 {
+        background: linear-gradient(165deg, #222b24 0%, #162019 54%, #0c140f 100%);
+      }
+
+      .catalog-grid .catalog-card:nth-child(4n + 1) {
+        background: linear-gradient(165deg, #1c2a1f 0%, #131d16 54%, #0b130d 100%);
+      }
+
+      .catalog-grid .catalog-card:nth-child(4n + 2) {
+        background: linear-gradient(165deg, #232d25 0%, #172119 54%, #0c140f 100%);
+      }
+
+      .catalog-grid .catalog-card:nth-child(4n + 3) {
+        background: linear-gradient(165deg, #1b291f 0%, #121c15 54%, #0b130d 100%);
+      }
+
+      .catalog-grid .catalog-card:nth-child(4n + 4) {
+        background: linear-gradient(165deg, #242e26 0%, #18231b 54%, #0d1510 100%);
+      }
+
+      .catalog-grid .catalog-card {
+        min-height: 418px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+      }
+
+      .catalog-grid .catalog-card .card-image {
+        border-radius: 0.75rem;
+        height: 11rem;
+        width: 100%;
+        object-fit: contain;
+        background: #ffffff;
+        padding: 0.5rem;
+      }
+
+      .catalog-grid .catalog-card .card-title {
+        margin-top: 1rem;
+        color: #ffffff;
+        font-size: 1.5rem;
+        line-height: 1.95rem;
+        font-family: Exo, sans-serif;
+        font-weight: 700;
+        transition: color 0.3s ease;
+      }
+
+      .catalog-grid .catalog-card:hover .card-title {
+        color: #7cf205;
+      }
+
+      .catalog-grid .catalog-card .card-copy {
+        margin-top: 0.75rem;
+        margin-bottom: 1rem;
+        color: #d1d5db;
+        font-size: 0.875rem;
+        line-height: 1.5rem;
+      }
+
+      .catalog-grid .catalog-card .card-btn {
+        margin-top: auto;
+        align-self: center;
+        border-radius: 0.5rem;
+        background: #7cf205;
+        color: #0d0d0d;
+        padding: 0.5rem 1.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        transition: background-color 0.25s ease;
+      }
+
+      .catalog-grid .catalog-card .card-btn:hover {
+        background: #ffffff;
+      }
+
+      .catalog-grid .catalog-card .card-accent {
+        margin: 0.95rem auto 0;
+        width: 86px;
+        height: 5px;
+        border-radius: 9999px;
+        background: linear-gradient(90deg, rgba(124, 242, 5, 0.2) 0%, rgba(124, 242, 5, 0.95) 50%, rgba(124, 242, 5, 0.2) 100%);
+      }
+
+      .marble-label {
+        display: inline-block;
+        color: #ffffff;
+        -webkit-text-fill-color: #ffffff;
+      }
+
+      .footer-separator::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        height: 1px;
+        background: linear-gradient(90deg, rgba(124, 242, 5, 0) 0%, rgba(124, 242, 5, 0.32) 18%, rgba(124, 242, 5, 0.88) 50%, rgba(124, 242, 5, 0.32) 82%, rgba(124, 242, 5, 0) 100%);
+        box-shadow: 0 0 10px rgba(124, 242, 5, 0.14);
+        pointer-events: none;
+      }
+
+      body.bg-body-gradient {
+        background: #111b29;
+        background: -webkit-linear-gradient(to bottom, #000000 0%, #0d161f 75%, #0f1723 100%);
+        background: linear-gradient(to bottom, #000000 0%, #0d161f 75%, #0f1723 100%);
+      }
+
     </style>
   </head>
 
   <body class="bg-body-gradient min-h-screen text-white font-overpass overflow-x-hidden">
     <header
-      class="fixed top-0 left-0 right-0 w-full z-50 bg-andamaq-dark/95 border-b border-andamaq-green shadow-lg backdrop-blur-sm"
+      class="fixed top-0 left-0 right-0 w-full z-50 bg-andamaq-dark/95 shadow-lg backdrop-blur-sm"
     >
       <div
         class="flex justify-between items-center px-4 py-2 max-w-7xl mx-auto relative"
@@ -253,20 +402,20 @@
     </section>
 
     <main class="py-4 px-4 max-w-7xl mx-auto space-y-0">
-      <section id="quienes-somos" class="relative mt-20 mb-0 px-4">
+      <section id="quienes-somos" class="relative mt-20 mb-0 px-1 sm:px-4">
         <div
-          class="relative mx-auto overflow-hidden rounded-[2rem] bg-white/[0.03] border border-white/10 shadow-2xl backdrop-blur-md"
+          class="relative w-full mx-auto overflow-hidden rounded-[2rem] bg-transparent border-0 shadow-none backdrop-blur-none"
         >
 
           <div
-            class="relative grid gap-10 px-6 py-10 sm:px-10 lg:grid-cols-2 lg:items-center lg:px-14 lg:py-16"
+            class="relative grid gap-8 px-2 py-8 sm:gap-10 sm:px-8 sm:py-10 lg:grid-cols-2 lg:items-center lg:px-14 lg:py-16"
           >
             <div class="relative z-10 text-center lg:text-left">
 
               <h2
-                class="mt-6 font-exo text-4xl font-black uppercase leading-[0.92] tracking-tight sm:text-5xl lg:text-6xl"
+                class="mt-6 font-exo text-5xl font-black uppercase leading-[0.92] tracking-tight sm:text-5xl lg:text-6xl"
               >
-                Soluciones firmes para <span class="text-andamaq-neon">cada obra</span>
+                Soluciones firmes para <span class="text-andamaq-neon whitespace-nowrap">cada&nbsp;obra</span>
               </h2>
 
               <p
@@ -293,16 +442,16 @@
               </div>
             </div>
 
-            <div class="relative z-10 flex items-center justify-center">
-              <div class="relative w-full max-w-lg">
+            <div class="relative z-10 flex w-full items-center justify-center">
+              <div class="relative w-full max-w-none sm:max-w-lg">
                 <div
-                  class="rounded-[1.75rem] bg-[#111111]/95 p-6 shadow-2xl backdrop-blur-sm sm:p-8"
+                  class="rounded-[1.75rem] bg-[#111111]/95 p-5 shadow-2xl backdrop-blur-sm sm:p-8"
                 >
                   <div class="flex flex-col gap-6">
                     <div class="flex items-start justify-between gap-4">
                       <div>
-                        <p class="text-xs font-bold uppercase tracking-[0.35em] text-gray-400">
-                          Andamaq
+                        <p class="text-xs font-bold uppercase tracking-[0.10em] text-gray-400">
+                          ¿ Por qué elegir Andamaq ?
                         </p>
                         <h3 class="mt-3 text-2xl font-exo font-black text-white sm:text-3xl">
                           Firme. Cercano. Resolutivo.
@@ -313,7 +462,7 @@
 
                     <div class="flex flex-col gap-4">
                       <div
-                        class="flex items-center gap-4 rounded-2xl bg-white/5 p-4 text-left shadow-sm shadow-black/20 transition-transform duration-300 hover:-translate-y-1"
+                        class="catalog-card catalog-card-tone-1 flex items-center gap-4 rounded-2xl p-4 text-left transition-transform duration-300"
                       >
                         <div
                           class="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-[#101510]"
@@ -339,7 +488,7 @@
                           </svg>
                         </div>
                         <div class="min-w-0">
-                          <p class="text-xs font-bold font-exo uppercase tracking-[0.1em] text-gray-400">
+                          <p class="text-sm font-bold font-exo uppercase tracking-[0.1em] marble-label">
                             Seguridad
                           </p>
                           <p class="mt-1 text-sm leading-6 text-gray-200">
@@ -349,14 +498,14 @@
                       </div>
 
                       <div
-                        class="flex items-center gap-4 rounded-2xl bg-andamaq-neon/10 p-4 text-left shadow-sm shadow-black/20 transition-transform duration-300 hover:-translate-y-1"
+                        class="catalog-card catalog-card-tone-1 flex items-center gap-4 rounded-2xl p-4 text-left transition-transform duration-300"
                       >
                         <div
-                          class="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-[#173300]"
+                          class="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-[#101510]"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
-                            class="h-6 w-6 text-andamaq-neon"
+                            class="h-6 w-6 text-white"
                             fill="none"
                             viewBox="0 0 24 24"
                             stroke="currentColor"
@@ -390,20 +539,20 @@
                           </svg>
                         </div>
                         <div class="min-w-0">
-                          <p class="text-xs font-exo uppercase tracking-[0.1em] text-andamaq-neon">
+                          <p class="text-sm font-bold font-exo uppercase tracking-[0.1em] marble-label">
                             Asesoramiento
                           </p>
-                          <p class="mt-1 text-sm leading-6 text-gray-100">
+                          <p class="mt-1 text-sm leading-6 text-gray-200">
                             Te orientamos para elegir la solución adecuada según la tarea.
                           </p>
                         </div>
                       </div>
 
                       <div
-                        class="flex items-center gap-4 rounded-2xl bg-[#0f140f] p-4 text-left shadow-sm shadow-black/20 transition-transform duration-300 hover:-translate-y-1"
+                        class="catalog-card catalog-card-tone-1 flex items-center gap-4 rounded-2xl p-4 text-left transition-transform duration-300"
                       >
                         <div
-                          class="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-white/10"
+                          class="flex h-12 w-12 flex-none items-center justify-center rounded-xl bg-[#101510]"
                         >
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
@@ -421,7 +570,7 @@
                           </svg>
                         </div>
                         <div class="min-w-0">
-                          <p class="text-xs font-exo uppercase tracking-[0.1em] text-gray-400">
+                          <p class="text-sm font-bold font-exo uppercase tracking-[0.1em] marble-label">
                             Respuesta ágil
                           </p>
                           <p class="mt-1 text-sm leading-6 text-gray-200">
@@ -469,9 +618,9 @@
             </div>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+          <div class="catalog-grid grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 items-start">
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Apisonadora"
               data-desc="El Motopisón Niwa 160cc es una opción muy elegida para trabajos de compactación por su potencia y fácil manejo. Cuenta con un motor Honda GX160 de 4 tiempos, apto para trabajar sobre distintos tipos de superficies.
@@ -479,39 +628,37 @@
 Es un equipo resistente y práctico, con ruedas extraíbles que facilitan el traslado dentro de la obra y reducen el esfuerzo durante su uso."
               data-img="imagenes/Motopison.jpg"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Motopison.jpg" alt="Apisonadora">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Apisonadora
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/Motopison.jpg" alt="Apisonadora">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Apisonadora</h3>
+              <p class="card-copy line-clamp-2">
                 Motopisón Niwa 160cc con motor Honda GX160, ideal para compactación en obra.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Andamios Tubulares"
               data-desc="Estructuras modulares certificadas para trabajos en altura. Máxima seguridad, fácil montaje y adaptabilidad para fachadas, pintura y obras de albañilería."
               data-img="imagenes/Andamios.jpg"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Andamios.jpg" alt="Andamios Tubulares">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Andamios Tubulares
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/Andamios.jpg" alt="Andamios Tubulares">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Andamios Tubulares</h3>
+              <p class="card-copy line-clamp-2">
                 Estructuras modulares certificadas para trabajos en altura con máxima seguridad.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Hoyadora"
               data-desc="La hoyadora a explosión de 63 cm³ es una solución eficiente para trabajos de perforación en suelo. Cuenta con asas para dos operarios, lo que brinda mayor control y estabilidad durante su uso.
@@ -519,20 +666,19 @@ Es un equipo resistente y práctico, con ruedas extraíbles que facilitan el tra
 Se encuentra disponible con mechas de 20 y 30 cm de diámetro y un brazo extensor que permite alcanzar hasta 1,5 m de profundidad, logrando perforaciones limpias y precisas en poco tiempo."
               data-img="imagenes/Hoyadora.png"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Hoyadora.png" alt="Hoyadora">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Hoyadora
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/Hoyadora.png" alt="Hoyadora">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Hoyadora</h3>
+              <p class="card-copy line-clamp-2">
                 Hoyadora a explosión de 63 cm³ con mechas de 20 y 30 cm de diámetro.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Motobomba"
               data-desc="La motobomba naftera de 4 tiempos es una solución potente y práctica para tareas de desagote. Ofrece un caudal de hasta 60.000 litros por hora y se entrega con manguera de succión de 5 metros, además de mangueras de desagote de 12 y 25 metros, lo que permite adaptarse a distintas necesidades de trabajo.
@@ -540,20 +686,19 @@ Se encuentra disponible con mechas de 20 y 30 cm de diámetro y un brazo extenso
 Es ideal para el desagote de fosas en obra, piletas y múltiples aplicaciones, brindando rapidez y eficiencia en cada uso."
               data-img="imagenes/Motobomba.jpg"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Motobomba.jpg" alt="Motobomba">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Motobomba
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/Motobomba.jpg" alt="Motobomba">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Motobomba</h3>
+              <p class="card-copy line-clamp-2">
                 Motobomba naftera 4 tiempos con caudal de hasta 60.000 litros por hora.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Martillo demoledor"
               data-desc="El martillo demoledor Makita de 72J y 30 kg está pensado para enfrentar tareas de demolición pesada, permitiendo trabajar sobre superficies de alta resistencia de manera eficiente y continua. Es una herramienta ideal para optimizar los tiempos en obra y encarar trabajos exigentes con mayor comodidad.
@@ -561,20 +706,19 @@ Es ideal para el desagote de fosas en obra, piletas y múltiples aplicaciones, b
 Cuenta con una fuerza de golpe de 72 joules, 870 golpes por minuto y alimentación monofásica, siendo apto para romper hormigón, pavimento y distintos tipos de superficies. Además, incorpora el sistema AVT (Anti Vibración), que reduce la transmisión de impactos al operario y mejora notablemente la experiencia de uso."
               data-img="imagenes/MartilloDemoledor.jpg"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/MartilloDemoledor.jpg" alt="Martillo demoledor">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Martillo demoledor
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/MartilloDemoledor.jpg" alt="Martillo demoledor">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Martillo demoledor</h3>
+              <p class="card-copy line-clamp-2">
                 Martillo Makita 72J y 30 kg con sistema Anti Vibración para demolición pesada.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Grupo Electrógeno"
               data-desc="El generador eléctrico Niwa es un grupo electrógeno monofásico de 10 kVA, equipado con un motor a explosión de cuatro tiempos de 7 HP y arranque eléctrico, pensado para brindar energía de forma confiable cuando más se necesita.
@@ -582,20 +726,19 @@ Cuenta con una fuerza de golpe de 72 joules, 870 golpes por minuto y alimentaci�
 Es una solución práctica para comienzos de obra, cortes de la red doméstica o para llevar electricidad a zonas remotas, ofreciendo autonomía y versatilidad en distintos escenarios de uso."
               data-img="imagenes/Grupo-electrogeno-naftero.png"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Grupo-electrogeno-naftero.png" alt="Grupo Electrógeno">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Grupo Electrógeno
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/Grupo-electrogeno-naftero.png" alt="Grupo Electrógeno">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Grupo Electrógeno</h3>
+              <p class="card-copy line-clamp-2">
                 Generador Niwa monofásico de 10 kVA con motor 7 HP y arranque eléctrico.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Allanadora"
               data-desc="La allanadora a explosión de 90 cm es una herramienta pensada para obtener acabados de alta calidad en pisos de hormigón. Su amplio diámetro de trabajo permite cubrir grandes superficies de manera eficiente, optimizando tiempos en obra.
@@ -603,175 +746,166 @@ Es una solución práctica para comienzos de obra, cortes de la red doméstica o
 Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación regulable, lo que posibilita adaptarse a distintas terminaciones según la necesidad. Ideal para el llaneado de pisos de grandes dimensiones, logrando una superficie uniforme y prolija."
               data-img="imagenes/Allanadora.jpg"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Allanadora.jpg" alt="Allanadora">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Allanadora
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/Allanadora.jpg" alt="Allanadora">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Allanadora</h3>
+              <p class="card-copy line-clamp-2">
                 Allanadora a explosión de 90 cm para acabados de alta calidad en hormigón.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Motosierra"
               data-desc="Esta motosierra cuenta con un motor de 35 cc y espada de 40 cm, combinando buen rendimiento con un manejo cómodo. Su diseño liviano y fácil de usar la hace ideal para podas domésticas y corte de troncos, permitiendo trabajar con mayor control y precisión."
               data-img="imagenes/Motosierra.webp"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Motosierra.webp" alt="Motosierra">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Motosierra
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/Motosierra.webp" alt="Motosierra">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Motosierra</h3>
+              <p class="card-copy line-clamp-2">
                 Motor de 35 cc y espada de 40 cm, ideal para podas y corte de troncos.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Amoladora Angular"
               data-desc="La amoladora angular Milwaukee de 9” está pensada para quienes necesitan una herramienta firme y rendidora en trabajos exigentes. Es ideal para cortes intensivos en hierros, perfiles metálicos y mampostería, acompañando sin problemas las tareas pesadas de obra y mantenimiento."
               data-img="imagenes/Amoladora.png"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Amoladora.png" alt="Amoladora Angular">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Amoladora Angular
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/Amoladora.png" alt="Amoladora Angular">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Amoladora Angular</h3>
+              <p class="card-copy line-clamp-2">
                 Milwaukee de 9" para cortes intensivos en hierro, metal y mampostería.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
-              <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+              <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Martillo Demoledor"
               data-desc="El martillo demoledor Bosch ofrece 7 joules de potencia, ideal para trabajos intensivos de obra en general. Su diseño liviano y maniobrable permite trabajar con comodidad en pisos, paredes y techos, facilitando tareas prolongadas sin perder control."
               data-img="imagenes/Taladro.webp"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Taladro.webp" alt="Martillo Demoledor">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Martillo Demoledor
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/Taladro.webp" alt="Martillo Demoledor">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Martillo Demoledor</h3>
+              <p class="card-copy line-clamp-2">
                 Martillo Bosch de 7 joules, liviano y maniobrable para obra general.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
 
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Sierra Circular"
               data-desc="Llevá tu productividad al límite con la fuerza de los 1400W de esta sierra Bosch. Gracias a su disco de 18 cm, vas a lograr cortes más profundos y limpios con una facilidad asombrosa. Es la combinación perfecta entre potencia bruta y precisión quirúrgica, diseñada ergonómicamente para que trabajes con total comodidad y seguridad."
               data-img="imagenes/SierraCircular.webp"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/SierraCircular.webp" alt="Sierra Circular">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Sierra Circular
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/SierraCircular.webp" alt="Sierra Circular">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Sierra Circular</h3>
+              <p class="card-copy line-clamp-2">
                 Herramienta profesional con disco de 184 mm (7 1/4"), ideal para cortes precisos en madera.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
             
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Rotomartillo Profesional"
               data-desc="Este rotomartillo profesional de 1250 W es la herramienta ideal para quienes buscan máxima potencia y durabilidad en la obra. Equipado con un motor que entrega 10 Joules de energía de impacto, perfora y rompe materiales de alta dureza como concreto y mampostería con total eficiencia. Su sistema de encastre SDS Max asegura una retención perfecta de los accesorios industriales y permite recambios rápidos y seguros. Con empuñadura auxiliar orientable, brindando un control preciso y un rendimiento constante en tareas de demolición."
               data-img="imagenes/RotoMartillo.webp"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/RotoMartillo.webp" alt="Rotomartillo Profesional">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Rotomartillo 
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/RotoMartillo.webp" alt="Rotomartillo Profesional">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Rotomartillo</h3>
+              <p class="card-copy line-clamp-2">
                 Rotomartillo profesional de 1250 W con energía de impacto de 10 Joules y carcasa de aleación de magnesio.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
 
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Hidrolavadora"
               data-desc="La hidrolavadora a explosión STIHL RB 200 es la herramienta ideal para mantener la limpieza en entornos de trabajo exigentes. Al contar con un robusto motor a combustión de 5 HP, ofrece la potencia necesaria para operar a pleno rendimiento en cualquier ubicación sin depender de conexiones eléctricas. Llega a una presión máxima de 170 Bar y un caudal de 520 L/H, perfectos para eliminar sin esfuerzo la suciedad pesada. Incorpora bomba de arranque fácil que agiliza la puesta en marcha, evitando tirones y demoras. Además, viene equipada de serie con un inyector de detergente y una manguera flexible de gran alcance, permitiendo cubrir amplias zonas sin necesidad de mover la máquina constantemente."
               data-img="imagenes/Hidrolavadora.webp"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Hidrolavadora.webp" alt="Hidrolavadora">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Hidrolavadora
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/Hidrolavadora.webp" alt="Hidrolavadora">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Hidrolavadora</h3>
+              <p class="card-copy line-clamp-2">
                 Hidrolavadora a explosión STIHL RB 200, un equipo de alta presión diseñado para tareas de limpieza exigentes en exteriores donde no se dispone de conexión eléctrica.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Compresor de Aire"
               data-desc="Este compresor de aire monofásico Lüsqtoff cuenta con un tanque de 50 litros y un motor de 2.5 HP, ofreciendo la capacidad y potencia necesarias para resolver trabajos neumáticos con solvencia. Garantiza una rápida recuperación de presión, lo que permite mantener un rendimiento constante sin largas interrupciones. Está diseñado pensando en la movilidad, incorporando ruedas y un asa que facilitan su traslado por cualquier área de trabajo. Su mayor ventaja es la versatilidad: al complementarlo con accesorios opcionales como pistolas de limpieza, infladores o sopletes, se convierte en un equipo multifunción que se adapta a tus necesidades."
               data-img="imagenes/CompresorMonofasico.webp"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/CompresorMonofasico.webp" alt="Compresor de Aire">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Compresor de Aire
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/CompresorMonofasico.webp" alt="Compresor de Aire">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Compresor de Aire</h3>
+              <p class="card-copy line-clamp-2">
                 Compresor de aire monofásico Lüsqtoff de 50 litros y 2.5 HP, indispensable para alimentar herramientas neumáticas con un flujo de aire constante..
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Hormigonera"
               data-desc="Esta hormigonera de 1 HP y 130 litros es un equipo eficiente. Su diseño tipo carretilla agiliza el traslado en obra, mientras que su motor de acople directo garantiza potencia sin mantenimiento de correas, siendo ideal para sesiones de mezcla en proyectos chicos/medianos."
               data-img="imagenes/mezcladora.webp"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/mezcladora.webp" alt="Mezcladora">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Mezcladora
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/mezcladora.webp" alt="Mezcladora">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Mezcladora</h3>
+              <p class="card-copy line-clamp-2">
                 Capacidad para 130 litros y motor de 1HP, ideal para mezclar hormigón en obras de construcción.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Vibrador de Hormigón"
               data-desc="Este potente vibrador de inmersión monofásico para hormigón de la marca MMQ es la herramienta perfecta para garantizar la máxima resistencia y durabilidad.
@@ -779,43 +913,41 @@ Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación re
               Cuenta con un motor blindado de 1,5 HP que alcanza las 2800 RPM. Su diseño incluye un resistente eje flexible y una manguera de 5 metros con sistema de encastre rápido. Con un peso total de 20 kg y aguja vibradora, es la solución definitiva para eliminar las burbujas de aire, lograr una compactación impecable y asegurar terminaciones estructurales de primer nivel."
               data-img="imagenes/VibradorHormigon.webp"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/VibradorHormigon.webp" alt="Vibrador de Hormigón">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Vibrador de Hormigón
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/VibradorHormigon.webp" alt="Vibrador de Hormigón">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Vibrador de Hormigón</h3>
+              <p class="card-copy line-clamp-2">
                 Capacidad para 130 litros y motor de 1HP, ideal para mezclar hormigón en obras de construcción.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
-            <div
-              class="p-4 bg-[#1a1a1a] border border-white/10 hover:border-andamaq-green/50 hover:-translate-y-1 transition duration-300 rounded-xl shadow shadow-black/30 cursor-pointer group"
+            <article
+              class="catalog-card catalog-card-tone-1 p-5 pb-7 text-center rounded-2xl transform transition duration-500"
               onclick="openModal(this)"
               data-title="Escaleras"
               data-desc="Escaleras de calidad para obras de construcción, diseñadas para ofrecer seguridad y durabilidad en entornos industriales. Consultá por tamaños disponibles y opciones personalizadas para adaptarse a las necesidades específicas de tu proyecto."
               data-img="imagenes/Escaleras.webp"
             >
-              <img class="rounded-lg h-48 w-full object-contain bg-white" src="imagenes/Escaleras.webp" alt="Escaleras">
-              <p class="text-white text-xl font-semibold ml-2 mt-4 group-hover:text-andamaq-neon transition-colors">
-                Escaleras
-              </p>
-              <p class="text-gray-400 text-sm/6 mt-2 ml-2 mb-2 line-clamp-2">
+              <img class="card-image" src="imagenes/Escaleras.webp" alt="Escaleras">
+              <div class="card-accent" aria-hidden="true"></div>
+                <h3 class="card-title">Escaleras</h3>
+              <p class="card-copy line-clamp-2">
                 Escaleras de calidad para obras, consultar tamaños.
               </p>
-              <button type="button" class="bg-andamaq-neon hover:bg-white transition cursor-pointer mt-4 mb-3 ml-2 px-6 py-2 font-medium rounded-lg text-black text-sm">
+              <button type="button" class="card-btn">
                 Ver detalles
               </button>
-            </div>
+            </article>
 
           </div>
         </div>
       </section>
     </main>
 
-    <footer id="contacto" class="bg-[#0D0D0D] border-t border-andamaq-green/80 pb-8">
+    <footer id="contacto" class="relative bg-[#0D0D0D] footer-separator pb-8">
       <div
         class="mx-auto max-w-7xl px-4 pt-16 pb-16 sm:px-6 lg:px-8 lg:pt-24 lg:pb-16"
       >
@@ -1089,3 +1221,9 @@ Cuenta con dos modalidades de uso: plato liso y cuatro aspas con inclinación re
     </script>
   </body>
 </html>
+
+
+
+
+
+
